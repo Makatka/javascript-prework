@@ -1,27 +1,37 @@
+var argMoveId, argPlayerMove, argComputerMove, computerMove, playerMove, randomNumber, playerInput;
+var argButtonName;
 
-var randomNumber = Math.floor(Math.random() * 3 + 1);
-printMessage('Wylosowana liczba to: '+ randomNumber);
+const buttonRock = document.getElementById('button-rock');
+const buttonPaper = document.getElementById('button-paper');
+const buttonScissors = document.getElementById('button-scissors');
 
-if (randomNumber == '1') {
-    computerMove = 'kamień';
-} else if (randomNumber == '2') {
-    computerMove = 'papier';
-} else if (randomNumber == '3') {
-    computerMove = 'nożyce';
-}
+function buttonClicked (argButtonName) {
+    clearMessages();
+    console.log(argButtonName + ' został kliknięty');
 
-printMessage('Mój ruch ' + computerMove);
+    playerMove = argButtonName;
+    console.log('ruch gracza to: ' + playerMove);
+    randomNumber = Math.floor(Math.random() * 3 + 1);
+    console.log('wylosowana liczba to: ' + randomNumber);
+    computerMove = getMoveName(randomNumber);
+    console.log('ruch komputera to: ' + computerMove);
+    displayResult(playerMove, computerMove);
+    }
 
-var playerMove, playerInput;
-playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
-if (playerInput == '1') {
-    playerMove = 'kamień';
-} else if (playerInput == '2'){
-    playerMove = 'papier';
-} else if (playerInput == '3'){
-    playerMove = 'nożyce';
-} else {
-    printMessage('Podaj wartość w zakresie 1 - 3');
-}
 
-printMessage('Twój ruch: ' + playerMove);
+buttonRock.addEventListener('click', function () {
+    buttonClicked('kamień');
+});
+buttonPaper.addEventListener('click', function () {
+    buttonClicked('papier');
+});
+buttonScissors.addEventListener('click', function () {
+    buttonClicked('nożyce');
+});
+
+
+
+
+
+
+
