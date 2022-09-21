@@ -7,7 +7,6 @@ const cpuResult = document.getElementById('cpu');
 let playerPoint = 0
 let cpuPoint = 0
 
-
 buttonRock.addEventListener('click', function () {
     buttonClicked('kamień');
 });
